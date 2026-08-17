@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Cracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Test Tool</h1>
+
+        <form id="Form">
+            <div class="form-group">
+                <label for="File">Datei auswählen (.pdf):</label>
+                <input type="file" id="File" name="pdf" accept=".pdf" required>
+            </div>
+
+            <div class="form-group">
+                <label for="type">Modus:</label>
+                <select id="type" name="type" required>
+                    <option value="w">Wordlist</option>
+                    <option value="r">Range</option>
+                    <option value="d">Date</option>
+                </select>
+            </div>
+
+            <!-- Wordlist -->
+            <div class="form-group mode-section" id="section-w">
+                <label for="wordlist">Wordlist-Pfad:</label>
+                <input type="text" id="wordlist" name="wordlistPath" 
+                       value="/usr/share/wordlists/rockyou.txt" required>
+            </div>
+
+            <!-- Range -->
+            <div class="form-group mode-section hidden" id="section-r">
+                <label>Range:</label>
+                <div class="range-inputs">
+                    <input type="number" id="range1" name="range1" placeholder="Von">
+                    <input type="number" id="range2" name="range2" placeholder="Bis">
+                </div>
+            </div>
+
+            <!-- Date -->
+            <div class="form-group mode-section hidden" id="section-d">
+                <label>Datumsbereich:</label>
+                <div class="range-inputs">
+                    <input type="date" id="date1" name="date1">
+                    <input type="date" id="date2" name="date2">
+                </div>
+            </div>
+
+            <button type="submit" id="submitBtn">Starten</button>
+        </form>
+
+        <div id="resultContainer" class="hidden">
+            <h2>Ergebnis:</h2>
+            <pre id="output"></pre>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
